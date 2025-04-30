@@ -1,0 +1,20 @@
+{
+  "name": "grpc-examples",
+  "type": "module",
+  "version": "0.1.0",
+  "scripts": {
+    "start": "node ./events/dynamic_codegen/events_server.js"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^9.7.0",
+    "@grpc/grpc-js": "^1.8.0",
+    "@grpc/grpc-js-xds": "^1.8.0",
+    "@grpc/proto-loader": "^0.6.0",
+    "async": "^1.5.2",
+    "async-mutex": "^0.5.0",
+    "google-protobuf": "^3.0.0",
+    "lodash": "^4.6.1",
+    "minimist": "^1.2.0",
+    "uuid": "^11.1.0"
+  }
+}

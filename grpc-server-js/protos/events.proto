@@ -1,0 +1,47 @@
+syntax = "proto3";
+import "google/protobuf/empty.proto";
+option java_multiple_files = true;
+option java_package = "io.grpc.exercise.events";
+option java_outer_classname = "EventsProto";
+option objc_class_prefix = "E";
+
+package events;
+service Events {
+  rpc GetTopics(UserInfo) returns (Topics) {}
+  rpc SubscribeTopics(Topics) returns (google.protobuf.Empty) {}
+  rpc GetNews(UserId) returns (stream NewsPackage) {}
+  rpc Unsubscribe(Topics) returns (google.protobuf.Empty) {}
+  rpc EndService(UserId) returns (google.protobuf.Empty) {}
+}
+
+
+
+message Topics {
+  string id = 1;
+  repeated string topics = 2;   
+}
+
+message UserInfo {
+  string name = 1;
+}
+
+message UserId {
+  string id = 1;
+}
+
+enum NewsImportance {
+  LOW = 0;
+  MEDIUM = 1;
+  HIGH = 2;
+}
+
+message News {
+  string topic = 1;
+  string newsTopic = 2;
+  int32 articleNumber = 3;
+  NewsImportance newsImportance = 4;
+}
+
+message NewsPackage {
+  repeated News news = 1;
+}
